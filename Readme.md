@@ -1,6 +1,6 @@
 # ApproachableGeek
 
-This profile page for an that has funtionalities to update name, email, phone number, and bio. It makes sure the phone number and email are in the right format.
+This is a profile page for an app that has functionalities to update name, email, phone number, and bio. It makes sure the phone number and email are in the right format.
 
 ### Time Spent: 3 hr
 
