@@ -1,5 +1,6 @@
 package com.example.approachablegeek;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Name = findViewById(R.id.Name);
-        Phone = findViewById(R.id.Phone);
+        Phone = findViewById(R.id.PhoneNo);
         Email = findViewById(R.id.Email);
         Bio = findViewById(R.id.Bio);
         Image = findViewById(R.id.ProfilePicture);
@@ -31,57 +32,74 @@ public class MainActivity extends AppCompatActivity {
         Name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openEditName();
+
+                String[] name_ = Name.getText().toString().split(" ");
+                Intent intent = new Intent(MainActivity.this, EditNameActivity.class);
+                intent.putExtra("FirstName", name_[0]);
+                intent.putExtra("LastName", name_[1]);
+                startActivityForResult(intent, 1);
             }
         });
 
         Phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openEditPhone();
+                String phone_no = Phone.getText().toString();
+                Intent intent = new Intent(MainActivity.this, PhoneEditActivity.class);
+                intent.putExtra("PhoneNo", phone_no);
+                startActivityForResult(intent, 2);
             }
         });
 
         Email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openEditEmail();
+                String email_ = Email.getText().toString();
+                Intent intent = new Intent(MainActivity.this, EmailEditActivity.class);
+                intent.putExtra("Email", email_);
+                startActivityForResult(intent, 3);
             }
         });
 
         Bio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openEditBio();
+                String bio_ = Bio.getText().toString();
+                Intent intent = new Intent(MainActivity.this, BioEditActivity.class);
+                intent.putExtra("Bio", bio_);
+                startActivityForResult(intent, 4);
             }
         });
+    }
 
-//        ImageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openEditBio();
-//            }
-//        });
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case 1:
+                if (resultCode == RESULT_OK){
+                    String firstName = data.getStringExtra("FirstName");
+                    String lastName = data.getStringExtra("LastName");
+                    if (!firstName.equals("") && !lastName.equals("")) {
+                        Name.setText(firstName + " " + lastName);
+                    }
+                }
+                break;
+            case 2:
+                if (resultCode == RESULT_OK){
+                    Phone.setText(data.getStringExtra("PhoneNo"));
+                }
+                break;
+            case 3:
+                if (resultCode == RESULT_OK){
+                    Email.setText(data.getStringExtra("Email"));
+                }
+                break;
+            case 4:
+                if (resultCode == RESULT_OK){
+                    Bio.setText(data.getStringExtra("Bio"));
+                }
+                break;
         }
-
-    private void openEditBio() {
-        Intent intent = new Intent(this, BioEditActivity.class);
-        startActivity(intent);
-    }
-
-    private void openEditEmail() {
-        Intent intent = new Intent(this, EmailEditActivity.class);
-        startActivity(intent);
-    }
-
-    private void openEditPhone() {
-        Intent intent = new Intent(this, PhoneEditActivity.class);
-        startActivity(intent);
-    }
-
-    private void openEditName() {
-        Intent intent = new Intent(this, EditNameActivity.class);
-        startActivity(intent);
     }
 }

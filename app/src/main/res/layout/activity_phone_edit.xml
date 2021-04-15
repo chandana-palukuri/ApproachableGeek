@@ -6,4 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".PhoneEditActivity">
 
+    <TextView
+        android:id="@+id/EditNameTitle"
+        android:layout_width="267dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="128dp"
+        android:text="What's your phone?"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Phone"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EditNameTitle" />
+
+    <Button
+        android:id="@+id/UpdateButton"
+        android:layout_width="314dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="216dp"
+        android:shadowColor="@color/black"
+        android:text="Update"
+        app:backgroundTint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPhoneNumber" />
+
+    <ImageView
+        android:id="@+id/Back"
+        android:layout_width="56dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_arrow" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

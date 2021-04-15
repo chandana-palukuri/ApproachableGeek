@@ -6,4 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".EmailEditActivity">
 
+    <TextView
+        android:id="@+id/EditNameTitle"
+        android:layout_width="267dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="104dp"
+        android:text="What's your email?"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/EmailTextField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="Email"
+        android:textColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
+        android:textColorLink="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EditNameTitle" />
+
+    <Button
+        android:id="@+id/UpdateButton"
+        android:layout_width="305dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="248dp"
+        android:shadowColor="@color/black"
+        android:text="Update"
+        app:backgroundTint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EmailTextField" />
+
+    <ImageView
+        android:id="@+id/Back"
+        android:layout_width="56dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_arrow" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
